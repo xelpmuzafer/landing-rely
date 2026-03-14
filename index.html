@@ -26,12 +26,6 @@
   </style>
 </head>
 <body>
-  <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "5f2af10b-0ced-49f0-9220-3dca89dbd4e5",
-        apiHost: "http://3.111.155.247:7770",
-    })
-</script>
+ <script type="module">import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";async function initChatbot() {try {const response = await fetch('http://3.111.155.247:7773/api/chat/config/248b5423-0c6d-4a05-8723-289a1bd6d33f');const config = await response.json();if (config && config.code == 200) {Chatbot.init(config.response);} else {console.error('Failed to load chatbot config:', config);}} catch (error) {console.error('Failed to initialize chatbot:', error);}}window.addEventListener('load', () => {initChatbot();});</script>
 </body>
 </html>
